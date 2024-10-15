@@ -138,7 +138,7 @@ export default function Home() {
       alert(`Sent ${numericAmount} SOL to ${to}`);
     } catch (error) {
       console.error('Error sending transaction:', error);
-      alert("Transaction failed: " + error.message);
+      alert("Transaction failed: " + error);
     }
   }
   
