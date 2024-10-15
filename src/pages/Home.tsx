@@ -95,22 +95,53 @@ export default function Home() {
   // SEND TOKENS
 
   const sendToken = async () => {
-    let to = document.getElementById("receiver_address").value;
-    let amount = document.getElementById("sending_amount").value;
-    console.log(to);
-    console.log(amount);
-    const transaction = new Transaction();
-    transaction.add(
-      SystemProgram.transfer({
-        fromPubkey: publicKey,
-        toPubkey: new PublicKey(to),
-        lamports: amount * LAMPORTS_PER_SOL,
-      })
-    );
-
-    await sendTransaction(transaction, connection);
-    alert("Sent " + amount + " SOL to " + to);
-  };
+    const toElement = document.getElementById("receiver_address") as HTMLInputElement | null;
+    const amountElement = document.getElementById("sending_amount") as HTMLInputElement | null;
+  
+    if (!toElement || !amountElement) {
+      alert("Input elements not found.");
+      return;
+    }
+  
+    let to = toElement.value.trim();
+    let amount = amountElement.value.trim();
+  
+    if (!to || !amount) {
+      alert("Please enter both receiver address and amount.");
+      return;
+    }
+  
+    const numericAmount = Number(amount);
+    if (isNaN(numericAmount) || numericAmount <= 0) {
+      alert("Please enter a valid amount greater than zero.");
+      return;
+    }
+  
+    try {
+      if (!publicKey) {
+        alert("Wallet not connected.");
+        return;
+      }
+  
+      const transaction = new Transaction();
+      transaction.add(
+        SystemProgram.transfer({
+          fromPubkey: publicKey,
+          toPubkey: new PublicKey(to),
+          lamports: numericAmount * LAMPORTS_PER_SOL,
+        })
+      );
+  
+      const signature = await sendTransaction(transaction, connection);
+      await connection.confirmTransaction(signature, 'processed');
+  
+      alert(`Sent ${numericAmount} SOL to ${to}`);
+    } catch (error) {
+      console.error('Error sending transaction:', error);
+      alert("Transaction failed: " + error.message);
+    }
+  }
+  
   return (
     <div className="container">
       <div className="wallet-buttons">
