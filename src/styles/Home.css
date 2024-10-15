@@ -1,0 +1,115 @@
+/* Container to center all content vertically and horizontally */
+/* Container to center all content vertically and horizontally */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  border: 2px solid #404040; /* Add a blue border */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  padding: 20px; /* Optional: some padding inside the container */
+  background-color: #f8f9fa; /* Optional: light background color */
+}
+
+
+/* Style for the wallet buttons */
+.wallet-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Style for the owner address */
+#owner_address {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Balance section container */
+.balance-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Balance information styling */
+.balance-info {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Refresh button style */
+.refresh-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.refresh-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Airdrop button style */
+.airdrop-section {
+  margin-bottom: 30px;
+}
+
+.airdrop-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.airdrop-btn:hover {
+  background-color: #218838;
+}
+
+/* Transfer heading style */
+.transfer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Transfer section container */
+.transfer-section {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input box styling */
+.input-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+/* Send button style */
+.send-btn {
+  background-color: #b81717;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #961313;
+}
