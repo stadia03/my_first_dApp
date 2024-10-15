@@ -1,5 +1,14 @@
 # React + TypeScript + Vite
 
+TRY IT OUT
+https://my-first-d-app-azure.vercel.app/
+
+SCREENSHOTS
+![image](https://github.com/user-attachments/assets/b82fdb48-5702-4cab-9830-7dee3c18f152)
+![image](https://github.com/user-attachments/assets/9c9e59d0-3fba-42af-8301-9a45aa2128ce)
+![image](https://github.com/user-attachments/assets/81c40509-e614-4e94-8392-155c1978c3d6)
+![image](https://github.com/user-attachments/assets/57c9f8f2-3c9b-4dfc-9517-bd5cc010890f)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
