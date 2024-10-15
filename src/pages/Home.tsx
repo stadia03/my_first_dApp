@@ -95,34 +95,38 @@ export default function Home() {
   // SEND TOKENS
 
   const sendToken = async () => {
-    const toElement = document.getElementById("receiver_address") as HTMLInputElement | null;
-    const amountElement = document.getElementById("sending_amount") as HTMLInputElement | null;
-  
+    const toElement = document.getElementById(
+      "receiver_address"
+    ) as HTMLInputElement | null;
+    const amountElement = document.getElementById(
+      "sending_amount"
+    ) as HTMLInputElement | null;
+
     if (!toElement || !amountElement) {
       alert("Input elements not found.");
       return;
     }
-  
+
     let to = toElement.value.trim();
     let amount = amountElement.value.trim();
-  
+
     if (!to || !amount) {
       alert("Please enter both receiver address and amount.");
       return;
     }
-  
+
     const numericAmount = Number(amount);
     if (isNaN(numericAmount) || numericAmount <= 0) {
       alert("Please enter a valid amount greater than zero.");
       return;
     }
-  
+
     try {
       if (!publicKey) {
         alert("Wallet not connected.");
         return;
       }
-  
+     
       const transaction = new Transaction();
       transaction.add(
         SystemProgram.transfer({
@@ -131,17 +135,15 @@ export default function Home() {
           lamports: numericAmount * LAMPORTS_PER_SOL,
         })
       );
-  
-      const signature = await sendTransaction(transaction, connection);
-      await connection.confirmTransaction(signature, 'processed');
-  
-      alert(`Sent ${numericAmount} SOL to ${to}`);
+
+      await sendTransaction(transaction, connection);
+      alert("Sent " + amount + " SOL to " + to);
     } catch (error) {
-      console.error('Error sending transaction:', error);
+      console.error("Error sending transaction:", error);
       alert("Transaction failed: " + error);
     }
-  }
-  
+  };
+
   return (
     <div className="container">
       <div className="wallet-buttons">
